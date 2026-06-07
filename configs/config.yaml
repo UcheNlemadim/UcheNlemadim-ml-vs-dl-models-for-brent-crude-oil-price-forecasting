@@ -1,0 +1,87 @@
+# ─────────────────────────────────────────────────────────────
+# Brent Crude Oil Price Forecasting
+# MSc Data Science | Student: Uche Nlemadim | Module: UFCF9Y-60-M
+# UWE Bristol 2024-25
+# ─────────────────────────────────────────────────────────────
+
+data:
+  raw_path:       "data/raw/Brent_Oil_Futures_Historical_Data_20002024.csv"
+  processed_path: "data/processed/brent_processed.csv"
+  scaler_path:    "data/processed/minmax_scaler.pkl"
+  date_column:    "Date"
+  target_column:  "Price"
+  date_format:    "%Y-%m-%d"
+  total_rows:     6422
+
+splits:
+  train_end:  "2020-12-31"
+  val_end:    "2022-12-31"
+  test_start: "2023-01-01"
+  train_rows: 5389
+  val_rows:   517
+  test_rows:  516
+
+features:
+  lags:          [1, 2, 3, 5, 10, 21]
+  rolling_means: [5, 21]
+  rolling_stds:  [5, 21]
+
+models:
+  random_seed: 42
+
+  arima:
+    max_p: 5
+    max_q: 5
+    d: 1
+    information_criterion: "aic"
+    stepwise: true
+
+  random_forest:
+    n_estimators:      [100, 200, 300, 500]
+    max_depth:         [5, 10, 15, null]
+    min_samples_split: [2, 5, 10]
+    min_samples_leaf:  [1, 2, 4]
+    cv_n_iter: 50
+
+  xgboost:
+    n_estimators:    [100, 200, 300, 500]
+    max_depth:       [3, 5, 6, 8]
+    learning_rate:   [0.01, 0.05, 0.1, 0.2]
+    subsample:       [0.6, 0.8, 1.0]
+    colsample_bytree: [0.6, 0.8, 1.0]
+    cv_n_iter: 50
+
+  lstm:
+    sequence_length:    60
+    units:              [64, 32]
+    dropout:            0.2
+    epochs:             100
+    batch_size:         32
+    learning_rate:      0.001
+    patience:           15
+    lr_reduce_patience: 5
+    lr_reduce_factor:   0.5
+
+  gru:
+    sequence_length:    60
+    units:              [64, 32]
+    dropout:            0.2
+    epochs:             100
+    batch_size:         32
+    learning_rate:      0.001
+    patience:           15
+    lr_reduce_patience: 5
+    lr_reduce_factor:   0.5
+
+evaluation:
+  walk_forward_folds: 5
+  metrics: ["RMSE", "MAE", "MAPE"]
+
+dashboard:
+  future_horizons_days: [7, 30, 90]
+  default_model: "lstm"
+
+paths:
+  results_dir:     "results"
+  artifacts_dir:   "artifacts/plots"
+  metrics_summary: "artifacts/metrics_summary.csv"
