@@ -61,32 +61,59 @@ Random Forest and XGBoost on the 2023-2024 test period.
 ## Project Structure
 
 project-root/
+
 ├── data/
-│   ├── raw/                         ← place CSV here (not tracked)
-│   └── processed/                   ← created by Notebook 01
+
+│   ├── raw/ 
+                        ← place CSV here (not tracked)
+│   └── processed/   
+                ← created by Notebook 01
 ├── notebooks/
+
 │   ├── 01_data_preprocessing.ipynb
+
 │   ├── 02_eda_analysis.ipynb
+
 │   ├── 03_arima_baseline.ipynb
+
 │   ├── 04_ml_models.ipynb
+
 │   ├── 05_dl_models.ipynb
+
 │   └── 06_evaluation_comparison.ipynb
+
 ├── results/
+
 │   ├── arima/
+
 │   ├── random_forest/
+
 │   ├── xgboost/
+
 │   ├── lstm/
+
 │   └── gru/
+
 ├── artifacts/
+
 │   └── plots/
+
 ├── src/
+
 │   ├── preprocessing.py
+
 │   ├── evaluation.py
+
 │   └── walk_forward_cv.py
+
 ├── configs/
+
 │   └── config.yaml
+
 ├── dashboard.py
+
 ├── requirements.txt
+
 └── README.md
 
 ## Notebooks
