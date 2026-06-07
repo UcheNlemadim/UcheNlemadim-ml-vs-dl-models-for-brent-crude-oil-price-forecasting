@@ -57,7 +57,6 @@ outperforms the ARIMA baseline (DM=3.13, p=0.0018, α=0.05).
 Contrary to expectation, both deep learning models ranked below
 Random Forest and XGBoost on the 2023-2024 test period.
 
----
 
 ## Project Structure
 
@@ -89,7 +88,6 @@ project-root/
 ├── dashboard.py
 ├── requirements.txt
 └── README.md
----
 
 ## Notebooks
 | # | Notebook | Purpose |
