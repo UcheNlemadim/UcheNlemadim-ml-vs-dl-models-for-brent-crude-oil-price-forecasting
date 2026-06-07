@@ -1,6 +1,6 @@
 
 
-# 🛢️A Comparative Evaluation of ML and DL Models for Brent Crude Oil Price Forecasting. UWE Bristol Dissertation Project.
+# *A Comparative Evaluation of ML and DL Models for Brent Crude Oil Price Forecasting. UWE Bristol Dissertation Project.
 
 > MSc Data Science · UFCF9Y-60-M CSCT Masters Project · UWE Bristol · 2024–25
 
@@ -31,7 +31,7 @@ same 25-year dataset under identical evaluation conditions?
 
 ---
 
-## Models Evaluated
+## Models Evaluated and Key References
 | Model | Type | Key Reference |
 |-------|------|---------------|
 | ARIMA | Statistical baseline | Mohammad and Panigrahi (2023) |
@@ -89,7 +89,6 @@ project-root/
 ├── dashboard.py
 ├── requirements.txt
 └── README.md
-
 ---
 
 ## Notebooks
@@ -223,6 +222,7 @@ Zhang, Y. and Lahmiri, S. (2025) A Deep Learning-Based Ensemble System for Brent
 ---
 
 ## Acknowledgements
+My Family and Friends,
 MSc Data Science, School of Computing and Creative Technologies,
 UWE Bristol. 
 
